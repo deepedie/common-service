@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer app class="secondary" v-model="DRAWER_STATE" width="300">
+  <v-navigation-drawer :width="sidebarWidth" app class="secondary" v-model="DRAWER_STATE">
     <v-app-bar class="primary" fixed flat>
       <v-toolbar-title class="ml-3">{{ this.$store.state.titleApp }}</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -26,19 +26,14 @@
       </v-card-actions>
     </v-card>
 
-
-
-
     <v-list dense>
       <template v-for="(item) in items">
         <v-list-group
           color="primary"
-          v-if="
-            item.subMenus &&
-              DRAWER_STATE 
-          "
+          :append-icon="item.subMenus && DRAWER_STATE ? 'mdi-chevron-down' : ''"
           :key="item.title"
           v-model="item.model"
+          @click="routingTo(item)"
         >
           <template v-slot:activator>
             <v-list-item-content>
@@ -57,7 +52,7 @@
               link
             >
               <v-list-item-content>
-                <v-list-item-title class="gray--text" link>
+                <v-list-item-title class="white--text" link>
                   {{ child.title }}
                 </v-list-item-title>
               </v-list-item-content>
@@ -65,7 +60,7 @@
           </template>
         </v-list-group>
 
-        <v-list-item
+        <!-- <v-list-item
           color="primary"
           v-else-if="typeof item.hasAccess == 'undefined' || item.hasAccess"
           :key="item.text"
@@ -74,12 +69,12 @@
         >
           <v-list-item-content>
             <v-hover v-slot="{ hover }">
-            <v-list-item-title class="white--text" :class="hover ? 'white--text' : 'gray--text'" link>
+            <v-list-item-title class="white--text" :class="hover ? 'red--text' : 'gray--text'" link>
               {{ item.title }}
             </v-list-item-title>
             </v-hover>
           </v-list-item-content>
-        </v-list-item>
+        </v-list-item> -->
       </template>
 
 
@@ -155,10 +150,10 @@ export default {
   data() {
     return {
       items: [
-        { title: "Home", link: "/" },
+        { title: "Home", link: "/home" },
         {
           title: "User Management",
-          link: "/feature-access",
+          link: "/user-management",
         },
         { title: "Group Master",
           subMenus: [ 
@@ -174,15 +169,15 @@ export default {
         },
         {
           title: "Master Approval Workflow",
-          link: "/seller-reportas",
+          link: "/approval-workflow",
         },
         {
           title: "Approval Reassignment",
-          link: "/seller-report",
+          link: "/approval-reassignment",
         },
         {
-          title: "Paramenter",
-          link: "/asds",
+          title: "Parameter",
+          link: "/parameter",
         },
         {
           title: "Product Catalogue",
@@ -222,6 +217,14 @@ export default {
   },
   methods: {
     ...mapActions(["TOGGLE_DRAWER"]),
+    routingTo(item){
+      if(item.subMenus){
+        console.log("ada submenu")
+      } else {
+        console.log("ini link")
+        this.$router.push(item.link)
+      }
+    }
   },
 };
 </script>

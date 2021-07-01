@@ -1,0 +1,38 @@
+@import "../../styles/app";
+
+.application {
+    background-color: #312E2E !important;
+    .login-box {
+        border-radius: 8px;
+        width: 700px;
+        position: absolute;
+        margin: auto;
+        background-color:  $primary;
+        overflow: hidden;
+        box-shadow: 0 0 10px 15px rgba(0, 0, 0, .3);
+    }
+    .form-box {
+        background-color: #000;
+        transform: translateX(-100px);  
+        width: 100%;
+        -webkit-transform: skewX(-15deg);
+    }
+    .login-form {
+        // transform: skew(15deg, 0deg);
+        transform: translateX(0px);  
+        -webkit-transform: skewX(15deg);
+    }
+    
+}
+#checkbox-label{
+    color: #fff;
+    font-size: 14px;
+}
+.login-form .v-input__prepend-inner .v-icon {
+    font-size: 20px;
+    margin-right: 12px;
+}
+.login-form .v-input__icon--append .v-icon {
+    font-size: 20px;
+    margin-right: 12px;
+}

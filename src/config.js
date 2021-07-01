@@ -7,8 +7,11 @@ export default {
       warning: "#FFC260",
       success: "#3CD4A0",
       info: "#9013FE",
-      textColor: "#B9B9B9",
+      textColor: "#BAB9B9",
       iconColor: "#FFFFFF",
-      grayBold: '#4a4a4a'
+      grayBold: '#4a4a4a',
+      bgSoftGray: '#efefef',
+      tableHeader: '#E1E1E1',
+      btnGray: "#908E8E"
   }
 };

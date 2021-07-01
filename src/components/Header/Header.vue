@@ -1,13 +1,13 @@
 <template>
   <nav>
-    <v-app-bar app class="primary">
+    <v-app-bar flat app class="primary">
       <v-app-bar-nav-icon v-if="!DRAWER_STATE" @click.stop="TOGGLE_DRAWER"></v-app-bar-nav-icon>
       <v-toolbar-title v-if="!DRAWER_STATE" class="text-uppercase">
         <span class="font-weight-light">Common</span>
         <span class="font-italic font-weight-bold">Service</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn flat text class="text-capitalize">
+      <v-btn @click="logout" text class="text-capitalize">
         Sign out
         <v-icon small class="ml-1">mdi-export</v-icon>
       </v-btn>
@@ -86,6 +86,10 @@ export default {
     },
     methods: {
       ...mapActions([ 'TOGGLE_DRAWER' ]),
+      //sementara
+      logout(){
+        this.$router.push('/login')
+      },
       logOut: function () {
         this.$store.dispatch('logout').then((response) => {
           if(response){
