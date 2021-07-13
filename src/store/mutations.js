@@ -5,4 +5,7 @@ export default {
   setFeatures(state, { features }) {
     state.features = features
   },
+  setProvinsiAll(state, payload){
+    state.allProvinsi = payload
+  },
 }

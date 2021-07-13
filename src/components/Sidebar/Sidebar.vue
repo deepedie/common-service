@@ -201,7 +201,7 @@ export default {
     };
   },
   mounted(){
-    console.log("menunya", this.items)
+    // console.log("menunya", this.items)
   },
   computed: {
     ...mapState(["drawer"]),
@@ -219,9 +219,9 @@ export default {
     ...mapActions(["TOGGLE_DRAWER"]),
     routingTo(item){
       if(item.subMenus){
-        console.log("ada submenu")
+        // console.log("ada submenu")
       } else {
-        console.log("ini link")
+        // console.log("ini link")
         this.$router.push(item.link)
       }
     }
