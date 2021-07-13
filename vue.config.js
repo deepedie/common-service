@@ -3,13 +3,16 @@ module.exports = {
     'vuetify'
   ],
   
-  publicPath: '/common-service',
+  publicPath: '/hahahaha',
   devServer: {
-    proxy: 'http://localhost:8030/'
-    // proxy: {
-    //   '/api/commonservice/autogenerate/v1/ProvinsiAll': {
-    //     target: 'http://localhost:8030/',
-    //   },
-    // }
+    // proxy: 'http://localhost:8001/'
+    proxy: {
+      '/api/commonservice/autogenerate/v1/ProvinsiAll': {
+        target: 'http://192.168.0.98:31447',
+      },
+      '/api/commonservice/autogenerate/v1/ProvinsiByCode': {
+        target: 'http://192.168.0.98:31447',
+      },
+    }
   }
 }

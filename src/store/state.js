@@ -10,5 +10,6 @@ export default {
     isLoading: false,
     features: {},
     allProvinsi: [],
+    provinsiByCode: {},
     cariIni: "BLA BLA BLA"
 }

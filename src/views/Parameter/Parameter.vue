@@ -4,6 +4,9 @@
       <h1>test</h1>
       <v-btn :color="color">asd</v-btn>
       
+      <v-text-field v-model="provinsiId"></v-text-field>
+      <v-text-field v-model="provinsiName"></v-text-field>
+      <v-btn @click="searchProvinsi"></v-btn>
       <v-data-table
           :headers="headers"
           :items="allProvinsi"
@@ -76,6 +79,30 @@
             </tr>
           </template> 
         </v-data-table>
+        <!-- V-FOR -->
+        <ul v-for="provinsi in allProvinsi" :key="provinsi.PARA_PROVINSI_ID">
+          <li>{{ provinsi.PARA_PROVINSI_NAME }} {{ provinsi.PARA_PROVINSI_ID}}</li>
+        </ul>
+
+        <!-- Request Body Action -->
+        <v-text-field
+          class="mt-10"
+          dense
+          outlined
+          v-model="provinsiId"
+          label="Provinsi ID"
+          hide-details
+          placeholder=" "
+          >
+        </v-text-field>
+        <v-btn @click="findProvinsi" dense class="black--text mb-5" color="yellow">Submit</v-btn>
+
+        <li>{{ provinsiByCode.PARA_PROVINSI_NAME }} {{ provinsiByCode.PARA_PROVINSI_ID}}</li>
+
+        <p>NAMA PROVINSI : {{ namaProvinsi }}</p>
+
+        <p v-if="show">HELLO !</p>
+
   </v-container>
 </template>
 
@@ -86,9 +113,13 @@ import { mapActions, mapState } from 'vuex'
 export default {
     data(){
         return{
+          show: false,
             isDisabled: false,
             color: 'yellow',
             dialog: false,
+            provinsiId: '',
+            provinsiName: '',
+            namaProvinsi: '',
             headers: [
                 {
                     text: "Provinsi ID",
@@ -112,22 +143,33 @@ export default {
         }
     },
     mounted(){
-        console.log("AKSES STATE", this.$store.state.cariIni)
         this.loadProvinsi()
-        this.cariData()
     },
     methods: {
-        ...mapActions(['getProvinsiAll']),
+        ...mapActions(['getProvinsiAll', 'getProvinsiByCode']),
         loadProvinsi(){
-            this.getProvinsiAll()
+            this.getProvinsiAll({ 
+              PARA_PROVINSI_ID : this.provinsiId,
+              PARA_PROVINSI_NAME : this.provinsiName
+            })
             // this.$store.dispatch('getProvinsiAll')
         },
-        cariData(){
-            console.log("MENCARI DATA ....")
+        findProvinsi(){
+          this.getProvinsiByCode({
+            PARA_PROVINSI_ID: this.provinsiId
+          })
+          .then(res => {
+            this.namaProvinsi = res.data.data.PARA_PROVINSI_NAME
+            // this.allProvinsi = res.data.data
+          })
+          .catch((err) => {
+            console.log(err)
+            this.provinsiByCode.PARA_PROVINSI_NAME = 'DATA TIDAK DITEMUKAN'
+          })
         },
     },
     computed: {
-        ...mapState(['allProvinsi'])
+        ...mapState(['allProvinsi', 'provinsiByCode'])
        
     }
 }

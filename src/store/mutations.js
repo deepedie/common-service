@@ -8,4 +8,7 @@ export default {
   setProvinsiAll(state, payload){
     state.allProvinsi = payload
   },
+  setProvinsiByCode(state, payload){
+    state.provinsiByCode = payload
+  }
 }
