@@ -1,7 +1,8 @@
 <template>
   <v-navigation-drawer :width="sidebarWidth" app class="secondary" v-model="DRAWER_STATE">
     <v-app-bar class="primary" fixed flat>
-      <v-toolbar-title class="ml-3">{{ this.$store.state.titleApp }}</v-toolbar-title>
+      <!-- <v-toolbar-title class="ml-3">{{ this.$store.state.titleApp }}</v-toolbar-title> -->
+      <v-img src="@/assets/logo-adira-png.png" width="50px"></v-img>
       <v-spacer></v-spacer>
       <v-icon right @click="TOGGLE_DRAWER">mdi-backburger</v-icon>
     </v-app-bar>

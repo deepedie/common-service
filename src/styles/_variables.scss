@@ -10,7 +10,9 @@ $content-padding:                           24px;
 
 // Colors //
 $primary:           #FFDD00;
-$secondary:         #FF5C93;
+$secondary-black:   #12162C;
+$secondary-purple:  #39225A;
+$background :       #FFF;
 $error:             #ff4081;
 $warning:           #FFC260;
 $success:           #3CD4A0;
@@ -22,12 +24,21 @@ $title-grey:        #4a4a4a;
 $card-title-color:  $text-color;
 
 // Typography //
-$h1-font-size:                3rem !default;      // 28px
-$h2-font-size:                2rem !default;       // 24px
-$h3-font-size:                1.64rem !default;     // 22px
-$h4-font-size:                1.5rem !default;     // 20px
-$h5-font-size:                1.285rem !default;         // 16px
-$h6-font-size:                1.142rem !default;     // 14px
+// $h1-font-size:                3rem !default;      // 28px
+$h1-font-size:                2rem !default;       // 24px
+$h2-font-size:                1.64rem !default;     // 22px
+$h3-font-size:                1.5rem !default;     // 20px
+$h4-font-size:                1.285rem !default;         // 16px
+$h5-font-size:                1.142rem !default;     // 14px
+
+$subtitle-1: 16px;
+$subtitle-2: 14px;
+$body-1: 16px;
+$body-2: 14px;
+$button-1   : 16px;
+$button-2   : 14px;
+$label      : 12px;
+$caption    : 12px;
 
 // Card //
 $card-shadow: none;//0 3px 11px 0 #061ef7, 0 3px 3px -2px #B2B2B21A, 0 1px 8px 0 #9A9A9A1A;

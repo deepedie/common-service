@@ -12,6 +12,8 @@ import MasterApprovalWorkflowForm from '@/views/MasterApprovalWorkflow/MasterApp
 import ApprovalReassignment from '@/views/ApprovalReassignment/ApprovalReassignment'
 import Parameter from '@/views/Parameter/Parameter'
 import RequestParameter from '@/views/RequestParameter/RequestParameter'
+import LupaPassword from '@/views/LupaPassword/LupaPassword'
+import UbahPassword from '@/views/UbahPassword/UbahPassword'
 
 const prefixPath = ''
 export default [
@@ -47,11 +49,22 @@ export default [
         }
     },
     {
+      path: '/lupa-password',
+      name: 'LupaPassword',
+      component: LupaPassword,
+    },
+    {
+      path: '/ubah-password',
+      name: 'UbahPassword',
+      component: UbahPassword,
+    },
+    {
         path: `${prefixPath}/`,
         meta: {
           name: 'baseLayout',
           requiresAuth: true
         },
+        
         redirect: `${prefixPath}/login`,
         name: 'layout',
         component: Layout,

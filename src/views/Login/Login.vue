@@ -1,65 +1,81 @@
 <template>
   <v-app class="application">
-    <v-container class="fill-height" fluid>
-      <v-row no-gutters align="center" justify="center">
-        <v-col cols="8" class="login-box d-flex align-center justify-center">
-          <v-col cols="5" class="align-center text-center">
-            <div>
-              <h1>Common Service</h1>
-            </div>
-          </v-col>
-          <v-col class="form-box" cols="7">
-            <v-form 
+      <v-row no-gutters>
+        <v-col cols="5" class="primary align-center text-center">
+          <div class="logo brand-wrapper d-flex justify-center align-center">
+                  <v-img
+                    src="@/assets/logo-adira-png.png"
+                    aspect-ratio
+                    max-width="230"
+                  ></v-img>
+          </div>
+        </v-col>
+        <v-col cols="7">
+          <v-form 
               ref="formLogin"
               v-model="validFormLogin"
               lazy-validation
               class="login-form pa-12"
             >
-              <v-row>
-                <v-col>
+            <h1>Masuk</h1>
+            <p class="body-1">Silahkan masuk untuk dapat melanjutkan</p>
+              <v-row justify="center">
+                <v-col cols="10">
                   <v-text-field
                     dense
-                    class="white mb-4"
                     outlined
                     required
-                    placeholder="NIK"
+                    placeholder="Masukkan NIK"
                     hide-details="auto"
-                    prepend-inner-icon="mdi-account"
+                    label="NIK"
                   ></v-text-field>
+                  <v-select
+                    dense
+                    outlined
+                    placeholder="Pilih Jabatan"
+                    hide-details="auto"
+                    label="Jabatan"
+                    :items="listJabatan"
+                    item-text="namaJabatan"
+                    item-value="kodeJabatan"
+                  >
+                  </v-select>
+                  <v-select
+                    dense
+                    outlined
+                    placeholder="Pilih Cabang"
+                    hide-details="auto"
+                    label="Cabang"
+                  >
+                  </v-select>
                   <v-text-field
                     dense
-                    class="white mb-4"
                     outlined
                     required
-                    placeholder="Password"
+                    placeholder="Masukkan Kata Sandi"
                     hide-details="auto"
-                    prepend-inner-icon="mdi-key"
                     :append-icon="value ?'mdi-eye-off' : 'mdi-eye'"
                     :type="value ? 'password' : 'text'"
                     @click:append="() => (value = !value)"
+                    label="Kata Sandi"
                   >
                   </v-text-field>
-                  <v-checkbox class="mb-2" dark color="white" value="white" dense hide-details="auto">
-                    <template v-slot:label>
-                      <span id="checkbox-label">Save ID</span>
-                    </template>
-                  </v-checkbox>
+                  <p @click="forgotPassword" class="blue--text body-2" style="cursor: pointer">Lupa Kata Sandi</p>
                   <v-btn
                     @click="loginOld"
                     large 
                     depressed 
                     block 
+                    rounded
                     color="primary" 
-                    class="text-uppercase"
+                    class="button-1"
                   >Masuk
                   </v-btn>
                 </v-col>
               </v-row>
             </v-form>
-          </v-col>
         </v-col>
       </v-row>
-    </v-container>
   </v-app>
 </template>
 
@@ -68,6 +84,21 @@ export default {
   data(){
     return {
       value: String,
+      validFormLogin: false,
+      listJabatan : [
+        {
+          namaJabatan: 'Bos',
+          kodeJabatan: '805'
+        },
+        {
+          namaJabatan: 'Budak',
+          kodeJabatan: '001'
+        },
+        {
+          namaJabatan: 'Babu',
+          kodeJabatan: '002'
+        },
+      ],
     }
   },
   methods: {
@@ -75,6 +106,9 @@ export default {
       window.localStorage.setItem('authenticated', true);
       this.$router.push('/home');
     },
+    forgotPassword(){
+      this.$router.push('/lupa-password')
+    }
   }
 }
 </script>
