@@ -11,6 +11,7 @@ import MasterApprovalWorkflow from '@/views/MasterApprovalWorkflow/MasterApprova
 import MasterApprovalWorkflowForm from '@/views/MasterApprovalWorkflow/MasterApprovalWorkflowForm'
 import ApprovalReassignment from '@/views/ApprovalReassignment/ApprovalReassignment'
 import Parameter from '@/views/Parameter/Parameter'
+import RequestParameter from '@/views/RequestParameter/RequestParameter'
 
 const prefixPath = ''
 export default [
@@ -99,7 +100,12 @@ export default [
             path: 'parameter',
             name: 'Parameter',
             component: Parameter
-          }
+          },
+          {
+            path: 'request-parameter',
+            name: 'RequestParameter',
+            component: RequestParameter
+          },
         ]
     }
       

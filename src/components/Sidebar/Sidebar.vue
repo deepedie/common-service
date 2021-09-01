@@ -152,6 +152,10 @@ export default {
       items: [
         { title: "Home", link: "/home" },
         {
+          title: "Request Parameter",
+          link: "/request-parameter"
+        },
+        {
           title: "User Management",
           link: "/user-management",
         },

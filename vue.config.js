@@ -3,7 +3,7 @@ module.exports = {
     'vuetify'
   ],
   
-  publicPath: '/hahahaha',
+  publicPath: '/common-service',
   devServer: {
     // proxy: 'http://localhost:8001/'
     proxy: {
