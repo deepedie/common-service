@@ -1,7 +1,7 @@
 @import "src/styles/variables";
 
 .v-navigation-drawer {
-  background-color: #232020 !important;
+  background-color: $secondary-black !important;
   // top: 64px!important;
   // height: calc(100vh - 64px)!important;
 
@@ -17,6 +17,9 @@
       border-radius: 36px;
       border: none;
     }
+  }
+  .card-bg {
+    background-color: $secondary-black !important;
   }
   .v-list-item:not(.v-list-item--active) {
     .v-icon {
@@ -65,8 +68,8 @@
   }
 }
 
-.v-navigation-drawer--temporary.v-navigation-drawer--clipped {
-  z-index: 5;
-}
+// .v-navigation-drawer--temporary.v-navigation-drawer--clipped {
+//   z-index: 5;
+// }
 
 

@@ -14,6 +14,7 @@ import Parameter from '@/views/Parameter/Parameter'
 import RequestParameter from '@/views/RequestParameter/RequestParameter'
 import LupaPassword from '@/views/LupaPassword/LupaPassword'
 import UbahPassword from '@/views/UbahPassword/UbahPassword'
+import RequestList from '@/views/RequestList/RequestList'
 
 const prefixPath = ''
 export default [
@@ -69,6 +70,11 @@ export default [
         name: 'layout',
         component: Layout,
         children: [
+          {
+            path: 'request-list',
+            name: 'RequestList',
+            component: RequestList,
+          },
           {
             path: 'home',
             name: 'Home',

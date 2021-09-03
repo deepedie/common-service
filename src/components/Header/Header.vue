@@ -7,10 +7,25 @@
         <span class="font-italic font-weight-bold">Service</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn @click="logout" text class="text-capitalize">
-        Sign out
-        <v-icon small class="ml-1">mdi-export</v-icon>
-      </v-btn>
+      <v-row justify="end" class="mt-4">
+        <v-col cols="3">
+          <v-select height="20px" placeholder="Lokasi" outlined hide-details class="white" dense></v-select>
+        </v-col>
+        <v-col cols="3">
+          <v-select placeholder="Jabatan" outlined hide-details class="white" dense></v-select>
+        </v-col>
+        <v-col cols="1" class="mt-3 mr-4">
+          <v-badge
+            color="error"
+            :content="notification"  
+          >
+          <v-icon class="ml-1">mdi-bell</v-icon>
+        </v-badge>
+        </v-col>
+      </v-row>
+      <!-- <v-btn @click="logout" icon class="text-capitalize"> -->
+        
+      <!-- </v-btn> -->
     </v-app-bar>
   </nav>
     <!-- <v-app-bar
@@ -74,6 +89,7 @@ export default {
     data(){
         return {
             dialog: false,
+            notification: '1222',
         }
     },
     computed: {

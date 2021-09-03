@@ -1,0 +1,13 @@
+@import "../../styles/app";
+.v-footer {
+  border-top: 1px solid #fff;
+  height: 62px;
+  background-color: $secondary-black !important;
+  z-index: 999;
+  .row {
+    justify-content: center;
+    @include media-breakpoint-up(sm) {
+      justify-content: space-between;
+    }
+  }
+}

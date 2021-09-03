@@ -1,30 +1,31 @@
 <template>
-  <v-navigation-drawer :width="sidebarWidth" app class="secondary" v-model="DRAWER_STATE">
+  <v-navigation-drawer :width="sidebarWidth" app v-model="DRAWER_STATE">
     <v-app-bar class="primary" fixed flat>
       <!-- <v-toolbar-title class="ml-3">{{ this.$store.state.titleApp }}</v-toolbar-title> -->
       <v-img src="@/assets/logo-adira-png.png" width="50px"></v-img>
       <v-spacer></v-spacer>
       <v-icon right @click="TOGGLE_DRAWER">mdi-backburger</v-icon>
     </v-app-bar>
-    <v-card flat elevation="0" color="secondary lighten-1 mt-10">
+    <v-card flat elevation="0" class="card-bg mt-15">
       <v-list-item class="px-8 pt-7">
-        <v-list-item-avatar >
+        <!-- <v-list-item-avatar >
           <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
-        </v-list-item-avatar>
+        </v-list-item-avatar> -->
         
         <v-list-item-content>
-          <v-list-item-title class="white--text mb-2">Mr.White</v-list-item-title>
-          <v-list-item-subtitle class="white--text">Administrator</v-list-item-subtitle>
+          <v-list-item-title style="letter-spacing:1.6px;" class="white--text mb-2">Goldman Sach</v-list-item-title>
+          <v-list-item-subtitle style="letter-spacing:1.2px;" class="white--text">Administrator</v-list-item-subtitle>
+          <v-list-item-subtitle style="letter-spacing:1.2px;" class="white--text">Jakarta</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
-      <v-card-actions>
+      <!-- <v-card-actions>
         <v-col class="text-right">
           <v-btn x-small plain text class="text-capitalize white--text">
             <v-icon x-small left>mdi-pencil</v-icon>
             Change Password
           </v-btn>
         </v-col>
-      </v-card-actions>
+      </v-card-actions> -->
     </v-card>
 
     <v-list dense>
@@ -36,7 +37,11 @@
           v-model="item.model"
           @click="routingTo(item)"
         >
+          
           <template v-slot:activator>
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
             <v-list-item-content>
               <v-hover>
                 <v-list-item-title class="white--text">
@@ -52,6 +57,9 @@
               :to="child.link === '#' ? null : child.link"
               link
             >
+              <v-list-item-icon>
+                <v-icon>{{ item.icon }}</v-icon>
+              </v-list-item-icon>
               <v-list-item-content>
                 <v-list-item-title class="white--text" link>
                   {{ child.title }}
@@ -151,10 +159,16 @@ export default {
   data() {
     return {
       items: [
-        { title: "Home", link: "/home" },
+        {
+          title: "Request List",
+          link: "/request-list",
+          icon: 'mdi-format-list-checks'
+        },
+        { title: "Home", link: "/home", icon: 'mdi-image' },
         {
           title: "Request Parameter",
-          link: "/request-parameter"
+          link: "/request-parameter",
+          icon: 'mdi-format-list-checks'
         },
         {
           title: "User Management",
@@ -164,7 +178,7 @@ export default {
           subMenus: [ 
           {
             title: "Group Master",
-            link: '/group-master'
+            link: '/group-master',
           },
           {
             title: "User Matrik",

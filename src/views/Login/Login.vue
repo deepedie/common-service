@@ -91,11 +91,11 @@ export default {
           kodeJabatan: '805'
         },
         {
-          namaJabatan: 'Budak',
+          namaJabatan: 'Manager',
           kodeJabatan: '001'
         },
         {
-          namaJabatan: 'Babu',
+          namaJabatan: 'Anggota',
           kodeJabatan: '002'
         },
       ],

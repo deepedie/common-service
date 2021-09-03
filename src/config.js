@@ -11,7 +11,7 @@ export default {
       iconColor: "#FFFFFF",
       grayBold: '#4a4a4a',
       bgSoftGray: '#efefef',
-      tableHeader: '#E1E1E1',
+      tableHeader: '#39225A',
       btnGray: "#908E8E"
   }
 };
